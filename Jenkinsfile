@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/LulukDWiKuncoro/ci-cd-demo.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 bat 'npm install'
@@ -28,7 +22,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'node app.js'
+                bat 'start "" node app.js'
             }
         }
     }
